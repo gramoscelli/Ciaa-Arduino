@@ -1,0 +1,16 @@
+menu.cpu=Procesador
+
+################################################################################
+
+ciaa.name=ciaa
+ciaa.build.core=arm-none-eabi
+ciaa.build.board=Edu-ciaa-nxp
+ciaa.upload.tool=openocd
+
+ciaa.menu.cpu.nxp=lpc4337
+ciaa.menu.cpu.nxp.build=arm-none-eabi
+
+ciaa.menu.cpu.fsl=MK60FX512VLQ15
+ciaa.menu.cpu.nxp.build=arm-none-eabi
+
+################################################################################
