@@ -1,11 +1,67 @@
-name=CIAA
+name=Versiones de la CIAA
+version=0.1.0
 
-tools.openocd.path={runtime.tools.openocd.path}
-tools.openocd.erase.params.verbose=-v -v -v -v
-tools.openocd.erase.params.quiet=-q -q
-tools.openocd.erase.pattern="{cmd.path}" "-C{config.path}" {erase.verbose} -p{build.mcu} -c{protocol} {program.extra_params} -e -Uefuse:w:{bootloader.extended_fuses}:m -Uhfuse:w:{bootloader.high_fuses}:m -Ulfuse:w:{bootloader.low_fuses}:m
+# Compilation variables
+# -------------------
 
-tools.openocd.bootloader.params.verbose=-v -v -v -v
-tools.openocd.bootloader.params.quiet=-q -q
-tools.openocd.bootloader.pattern="{cmd.path}" "-C{config.path}" {bootloader.verbose} -p{build.mcu} -c{protocol} {program.extra_params}
+compiler.warning_flags=-w
+compiler.warning_flags.none=-w
+compiler.warning_flags.default=
+compiler.warning_flags.more=-Wall
+compiler.warning_flags.all=-Wall -Wextra
 
+compiler.path={runtime.tools.arm-none-eabi-gcc.path}/bin/
+
+compiler.c.cmd=arm-none-eabi-gcc
+compiler.c.flags=-c -g -Os -MMD -ffunction-sections -fdata-sections -nostdlib --param max-inline-insns-single=500 -DCORE_M4 -D__USE_LPCOPEN -DMULTICORE -mcpu={build.mcu} -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb  -D__LPC43XX__ -D__CODE_RED -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER -D__MULTICORE_MASTER_SLAVE_M0APP -DARCH=cortexM4 -DCPUTYPE=lpc43xx -DCPU=lpc4337 -DBOARD={build.macro} -D{build.macro} -D{build.macro.mcu} -Dlpc4337_m4 
+
+compiler.c.axf.cmd=arm-none-eabi-gcc
+compiler.c.axf.flags=-Wl,--gc-sections -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -Xlinker -nostdlib -fno-builtin
+compiler.c.axf.extra_flags=
+compiler.cpp.cmd=arm-none-eabi-g++
+compiler.cpp.flags={compiler.c.flags} -fno-rtti -fno-exceptions
+compiler.ar.cmd=arm-none-eabi-ar
+compiler.ar.flags=
+compiler.axf2bin.cmd=arm-none-eabi-objcopy
+compiler.axf2bin.flags=-v -O binary
+compiler.size.cmd=arm-none-eabi-size
+
+
+recipe.c.o.pattern="{compiler.path}{compiler.c.cmd}" {compiler.c.flags} -std=c99 -std=gnu99 {includes} "{source_file}" -o "{object_file}"
+
+recipe.cpp.o.pattern="{compiler.path}{compiler.cpp.cmd}" {compiler.cpp.flags} {includes} "{source_file}" -o "{object_file}"
+
+#archive_file_path={build.path}{archive_file}
+#recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} rcs "{archive_file_path}" "{object_file}"
+
+tools.arm_none_eabi_gcc.a.arflags    = rcs
+app_archive_file                     = {build.path}/libcore.a
+recipe.ar.pattern                    = "{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} {tools.arm_none_eabi_gcc.a.arflags} "{app_archive_file}" "{object_file}"
+
+recipe.c.combine.pattern="{compiler.path}{compiler.c.axf.cmd}" {compiler.c.axf.flags} -mcpu={build.mcu} "-Wl,-Map={build.path}/{build.project_name}.map" {compiler.c.axf.extra_flags} -o "{build.path}/{build.project_name}.axf"  "-T{build.variant.path}/{build.ldscript1}" "-T{build.variant.path}/{build.ldscript2}" "-T{build.variant.path}/{build.ldscript3}" {object_files} "-L{build.path}" -lcore
+
+#recipe.hooks.core.postbuild.1.pattern=
+
+recipe.objcopy.bin.pattern="{compiler.path}{compiler.axf2bin.cmd}" {compiler.axf2bin.flags} "{build.path}/{build.project_name}.axf" "{build.path}/{build.project_name}.bin"
+
+recipe.size.pattern="{compiler.path}{compiler.size.cmd}" -A "{build.path}/{build.project_name}.axf"
+recipe.size.regex=^(?:\.text|\.data|\.rodata|\.text.align|\.ARM.exidx)\s+([0-9]+).*
+recipe.size.regex.data=^(?:\.data|\.bss|\.noinit)\s+([0-9]+).*
+
+
+# Uploader tools
+# -------------------
+tools.openocd.path={runtime.tools.openocd.path}/bin/
+tools.openocd.cmd=openocd
+tools.openocd.program.params.verbose=-v
+tools.openocd.program.params.quiet=-q
+tools.openocd.program.config={runtime.platform.path}/freedom-e-sdk/bsp/env/{build.boardenv}/openocd.cfg
+tools.openocd.program.pattern="{path}{cmd}" -f {program.config} -c "flash protect 0 64 last off; program {build.path}/{build.project_name}.axf verify; resume 0x20400000; exit"
+
+
+tools.manual_openocd.path=
+tools.manual_openocd.cmd=openocd
+tools.manual_openocd.program.params.verbose=-v
+tools.manual_openocd.program.params.quiet=-q
+tools.manual_openocd.program.config={runtime.platform.path}/freedom-e-sdk/bsp/env/{build.boardenv}/openocd.cfg
+tools.manual_openocd.program.pattern="{path}{cmd}" -f {program.config} -c "flash protect 0 64 last off; program {build.path}/{build.project_name}.axf verify; resume 0x20400000; exit"
