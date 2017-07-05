@@ -11,7 +11,8 @@ ciaa.build.mcu=cortex-m4
 ciaa.build.macro=ciaa_nxp
 ciaa.build.macro.mcu=__LPC43XX__
 
-ciaa.upload.tool=openocd
+ciaa.upload.tool=OpenOCDedu-ciaa.
+ciaa.upload.protocol=OpenOCD
 
 
 ################################################################################
@@ -27,6 +28,14 @@ edu-ciaa.build.macro.mcu=__LPC43XX__
 edu-ciaa.build.ldscript1=linker_scripts/lpc4337_m4_lib.ld
 edu-ciaa.build.ldscript2=linker_scripts/lpc4337_m4_mem.ld
 edu-ciaa.build.ldscript3=linker_scripts/lpc4337_m4.ld
+
+
 edu-ciaa.upload.tool=openocd
+edu-ciaa.upload.protocol=
+edu-ciaa.upload.openocdscript=openocd/lpc4337.cfg
+edu-ciaa.upload.maximum_size=1048576
+edu-ciaa.upload.file_type=bin
+edu-ciaa.upload.ram.maximum_size=139264
+edu-ciaa.upload.flash.maximum_size=1048576
 
 ################################################################################

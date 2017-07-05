@@ -1,11 +1,13 @@
-jlink.name=JLink with Adalink
-jlink.communication=swd
-jlink.protocol=adalink
-jlink.program.tool=adalink
-jlink.program.programmer=jlink
+ciaa_nxp.name=USB Debug
+ciaa_nxp.name.communication=USB
+ciaa_nxp.name.protocol=
+ciaa_nxp.name.program.protocol=
+ciaa_nxp.program.tool=openocd
+ciaa_nxp.program.extra_params= 
 
-stlink.name=STlinkV2 with Adalink
-stlink.communication=swd
-jlink.protocol=adalink
-stlink.program.tool=adalink
-stlink.program.programmer=stlink
+edu_ciaa_nxp.name=USB Debug
+edu_ciaa_nxp.name.communication=USB
+edu_ciaa_nxp.name.protocol=
+edu_ciaa_nxp.name.program.protocol=
+edu_ciaa_nxp.program.tool=openocd
+edu_ciaa_nxp.program.extra_params= 

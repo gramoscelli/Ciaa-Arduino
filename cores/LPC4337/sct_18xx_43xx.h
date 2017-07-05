@@ -82,9 +82,19 @@ typedef struct {
 
 	__IO uint16_t STATE_L;				/*!< state register for counter L */
 	__IO uint16_t STATE_H;				/*!< state register for counter H */
+/* Parche por header Arduino.h */
+	#ifdef INPUT
+	#undef INPUT
+	#endif 
+/* fin parche */
 	__I  uint32_t INPUT;				/*!< input register */
 	__IO uint16_t REGMODE_L;			/*!< match - capture registers mode register L */
 	__IO uint16_t REGMODE_H;			/*!< match - capture registers mode register H */
+/* Parche por header Arduino.h */
+	#ifdef OUTPUT
+	#undef OUTPUT
+	#endif 
+/* fin parche */
 	__IO uint32_t OUTPUT;				/*!< output register */
 	__IO uint32_t OUTPUTDIRCTRL;		/*!< output counter direction Control Register */
 	__IO uint32_t RES;					/*!< conflict resolution register */
