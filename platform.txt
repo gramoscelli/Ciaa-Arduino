@@ -30,7 +30,7 @@ app_archive_file                  = {build.path}/libcore.a
 recipe.c.o.pattern         = "{compiler.path}{compiler.c.cmd}" {compiler.c.flags} -std=c99 -std=gnu99 {includes} "{source_file}" -o "{object_file}"
 recipe.cpp.o.pattern       = "{compiler.path}{compiler.cpp.cmd}" {compiler.cpp.flags} {includes} "{source_file}" -o "{object_file}"
 recipe.ar.pattern          = "{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} {tools.arm_none_eabi_gcc.a.arflags} "{app_archive_file}" "{object_file}"
-recipe.c.combine.pattern   = "{compiler.path}{compiler.c.axf.cmd}" {compiler.c.axf.flags} -mcpu={build.mcu} "-Wl,-Map={build.path}/{build.project_name}.map" {compiler.c.axf.extra_flags} -o "{build.path}/{build.project_name}.axf"  "-T{build.variant.path}/{build.ldscript1}" "-T{build.variant.path}/{build.ldscript2}" "-T{build.variant.path}/{build.ldscript3}" {object_files} "-L{build.path}" -lcore
+recipe.c.combine.pattern   = "{compiler.path}{compiler.c.axf.cmd}" {compiler.c.axf.flags} -mcpu={build.mcu} "-Wl,-Map={build.path}/{build.project_name}.map" {compiler.c.axf.extra_flags} -o "{build.path}/{build.project_name}.axf"  "-T{build.variant.path}/{build.ldscript1}" "-T{build.variant.path}/{build.ldscript2}" "-T{build.variant.path}/{build.ldscript3}" {object_files} "-L{build.path}" -lcore -lnosys
 recipe.objcopy.bin.pattern = "{compiler.path}{compiler.axf2bin.cmd}" {compiler.axf2bin.flags} "{build.path}/{build.project_name}.axf" "{build.path}/{build.project_name}.bin"
 recipe.size.pattern        = "{compiler.path}{compiler.size.cmd}" -A "{build.path}/{build.project_name}.axf"
 recipe.size.regex          = ^(?:\.text|\.data|\.rodata|\.text.align|\.ARM.exidx)\s+([0-9]+).*
