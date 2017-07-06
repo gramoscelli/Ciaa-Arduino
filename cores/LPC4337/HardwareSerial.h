@@ -84,48 +84,26 @@ typedef uint8_t rx_buffer_index_t;
 #define SERIAL_7O2 0x3C
 #define SERIAL_8O2 0x3E
 
-class _serial : public Stream
+class Stream_Serial : public Stream
 {
   protected:
-    // Has any byte been written to the UART since begin()
-    bool _written;
-
-    // Don't put any members after these buffers, since only the first
-    // 32 bytes of this struct can be accessed quickly using the ldd
-    // instruction.
-    unsigned char _rx_buffer[SERIAL_RX_BUFFER_SIZE];
-    unsigned char _tx_buffer[SERIAL_TX_BUFFER_SIZE];
-
     uartMap_t this_uart;
     uint32_t this_baud;
 
   public:
-    _serial(uartMap_t uart) { _serial(uart, 9600); }
-    _serial(uartMap_t uart, uint32_t baud);
+    Stream_Serial(uartMap_t uart) { Stream_Serial(uart, 9600); }
+    Stream_Serial(uartMap_t uart, uint32_t baud);
     void begin(uint32_t baud);
-    void end();
-    virtual int available(void);
-    virtual int peek(void);
     virtual int read(void);
-    int availableForWrite(void);
-    virtual void flush(void);
     virtual size_t write(uint8_t);
-    inline size_t write(unsigned long n) { return write((uint8_t)n); }
-    inline size_t write(long n) { return write((uint8_t)n); }
-    inline size_t write(unsigned int n) { return write((uint8_t)n); }
-    inline size_t write(int n) { return write((uint8_t)n); }
-    using Print::write; // pull in write(str) and write(buf, size) from Print
-    using Print::print;
-    using Print::println;
-    operator bool() { return true; }
-
-    // Interrupt handlers
-    static void _rx_complete_irq(uartMap_t uart);
-    static int _tx_complete_irq(uartMap_t uart);
+//    using Print::write; // pull in write(str) and write(buf, size) from Print
+    virtual int available();
+    virtual int peek(void);
+    virtual void flush(void);
 };
 
 extern void serialEventRun(void) __attribute__((weak));
 
-extern _serial Serial;
+extern Stream_Serial Serial;
 
 #endif

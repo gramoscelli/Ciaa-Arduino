@@ -64,8 +64,17 @@ void analogOutputInit(void) {
 void analogWrite(uint32_t ulPin, uint32_t ulValue) {
   uint16_t analogValue = mapResolution(analogValue, _writeResolution, 10);
 
-  if (ulPin == DAC)
+  if (ulPin == DAC) // if analog output is the DAC port => use dacWrite()
     dacWrite( (adcMap_t) ulPin, analogValue);
+  else { // Use PWM on digital port
+  	if (!pwmIsAttached( (pwmMap_t) ulPin)) {
+  		
+  	}
+  	if (pwmIsAttached( (pwmMap_t) ulPin)) {
+  		pwmWrite( (pwmMap_t) ulPin, (uint8_t) ulValue);
+  	}
+
+  }
 }
 
 #ifdef __cplusplus

@@ -9,6 +9,7 @@
 #include <stdint.h>
 
 #include "binary.h"
+#include "itoa.h"
 #include "sapi.h"         /* <= sAPI header */
 
 #ifdef __cplusplus

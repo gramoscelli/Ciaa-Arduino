@@ -29,7 +29,8 @@ void initVariant() { }
 void init_tecs_leds()
 {
      /* Inicializar GPIOs */
-   gpioConfig( T_FIL1, GPIO_ENABLE );
+   gpioConfig( (gpioMap_t) 0, // don't care with GPIO_ENABLE 
+               GPIO_ENABLE );
 
    /* Configuración de pines de entrada para Teclas de la CIAA-NXP */
    gpioConfig( TEC1, GPIO_INPUT );
@@ -45,6 +46,17 @@ void init_tecs_leds()
    gpioConfig( LED2, GPIO_OUTPUT );
    gpioConfig( LED3, GPIO_OUTPUT ); 
 
+   /*Configiración incial de pwm */
+   pwmConfig( (pwmMap_t)0,    PWM_ENABLE );
+
+   /* Inicializar AnalogIO */
+   /* Posibles configuraciones:
+    *    ADC_ENABLE,  ADC_DISABLE,
+    *    ADC_ENABLE,  ADC_DISABLE,
+    */
+   adcConfig( ADC_ENABLE ); /* ADC */
+   dacConfig( DAC_ENABLE ); /* DAC */
+
 }
 
 /*
@@ -56,7 +68,7 @@ int main( void )
   /* Inicializar la placa */
   boardConfig();
 
-//  init_tecs_leds();
+  init_tecs_leds();
 
 
   /* Inicializar el conteo de Ticks con resolución de 1ms, sin tickHook */
