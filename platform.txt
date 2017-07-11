@@ -42,4 +42,6 @@ recipe.size.regex.data     = ^(?:\.data|\.bss|\.noinit)\s+([0-9]+).*
 
 tools.openocd.upload.params.verbose  = -d2
 tools.openocd.upload.params.quiet    = -d0
+tools.openocd.upload.pattern         = {runtime.platform.path}/tools/openocd/openocd.sh "{runtime.tools.openocd.path}/bin/openocd" "{runtime.platform.path}/variants/{build.variant}/{upload.openocdscript}" "{build.path}/{build.project_name}.bin" {upload.verbose}
 tools.openocd.upload.pattern.windows = {runtime.platform.path}/tools/openocd/openocd.cmd "{runtime.platform.path}\tools\drivers" "{runtime.tools.openocd.path}\bin\openocd.exe" "{runtime.platform.path}/variants/{build.variant}/{upload.openocdscript}" "{build.path}\{build.project_name}.bin" {upload.verbose}
+
