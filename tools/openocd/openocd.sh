@@ -1,4 +1,4 @@
-!/bin/sh
+#!/bin/sh
 
 # Argumento 1 Path absoluto a openocd
 # Argumento 2 Path absoluto a la configuración (e.g. lpc4337.cfg
