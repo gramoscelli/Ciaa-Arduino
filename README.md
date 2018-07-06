@@ -6,21 +6,21 @@ Implementación no oficial de las especificaciones de Arduino (https://github.co
   
   1\) Acceder a Archivo -> Preferencias. 
   
-  ![Screenshot](https://github.com/gramoscelli/Ciaa-Arduino/blob/master/doc/platform.jpg)
+  ![Screenshot](doc/platform.jpg)
   
   2\) Agregar el URL del archivo JSON de instalación: https://raw.githubusercontent.com/gramoscelli/Install-Arduino-Ciaa/master/package_ciaa_index.json.
   
-  ![Screenshot](https://github.com/gramoscelli/Ciaa-Arduino/blob/master/doc/platform2.jpg)
+  ![Screenshot](doc/platform2.jpg)
   
   3\) Iniciar el Gestor de Tarjetas desde Herramientas -> Placa...
   
-  ![Screenshot](https://github.com/gramoscelli/Ciaa-Arduino/blob/master/doc/platform3.jpg)
+  ![Screenshot](doc/platform3.jpg)
   
   4\) Instalar la tarjeta Ciaa
   
-  ![Screenshot](https://github.com/gramoscelli/Ciaa-Arduino/blob/master/doc/platform4.jpg)
+  ![Screenshot](doc/platform4.jpg)
   
   5\) Elegir la tarjeta Ciaa recién instalada, desde Herramientas -> Placa...
   
-  ![Screenshot](https://github.com/gramoscelli/Ciaa-Arduino/blob/master/doc/platform5.jpg)
+  ![Screenshot](doc/platform5.jpg)
   
