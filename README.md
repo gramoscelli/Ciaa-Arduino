@@ -10,7 +10,7 @@ Funciones a implementar:
 
 Requisitos:
 
-1\) **analogWrite\(\)** Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), the pin will generate a steady rectangular wave of the specified duty cycle until the next call to analogWrite() (or a call to digitalRead() or digitalWrite()) on the same pin.
+A\) **analogWrite\(\)** Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to **analogWrite\(\)**, the pin will generate a steady rectangular wave of the specified duty cycle until the next call to analogWrite() (or a call to **digitalRead\(\)** or **digitalWrite\(\)**) on the same pin.
 
 2\)
 
