@@ -23,8 +23,7 @@ De la documentación de  (sAPI):
         - param uint8_t pwmNumber
         - param uint8_t config
         - return bool_t true (1) if config it is ok
-
-        #### bool_t pwmInit( pwmMap_t pwmNumber, pwmInit_t config);
+        bool_t pwmInit( pwmMap_t pwmNumber, pwmInit_t config);
 
 
 # Usando el IDE de Arduino para programar las tarjetas CIAA-NXP/EDU-CIAA-NXP
