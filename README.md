@@ -86,4 +86,12 @@ De la documentación de
 
 ## Requerimientos
 
-1) 
+1.
+
+1. 
+
+1.
+
+1.
+
+1.
