@@ -17,8 +17,8 @@ The input range can be changed using analogReference(), while the resolution can
 
 On ATmega based boards (UNO, Nano, Mini, Mega), it takes about 100 microseconds (0.0001 s) to read an analog input, so the maximum reading rate is about 10,000 times a second.
 
-        Parameters pin: the name of the analog input pin to read from (A0 to A5 on most boards, A0 to A6 on MKR boards, A0 to A7 on the Mini and Nano, A0 to A15 on the Mega).
-        Returns The analog reading on the pin. Although it is limited to the resolution of the analog to digital converter (0-1023 for 10 bits or 0-4095 for 12 bits). Data type: **int**.
+        param pin: the name of the analog input pin to read from (A0 to A5 on most boards, A0 to A6 on MKR boards, A0 to A7 on the Mini and Nano, A0 to A15 on the Mega).
+        return: The analog reading on the pin. Although it is limited to the resolution of the analog to digital converter (0-1023 for 10 bits or 0-4095 for 12 bits). Data type: **int**.
         int analogRead(int pin)
 
 2\) **analogReference()** (No se usa)
@@ -27,8 +27,8 @@ On ATmega based boards (UNO, Nano, Mini, Mega), it takes about 100 microseconds 
 
 analogWrite(pin, value)
 
-         Parameters pin: the Arduino pin to write to. Allowed data types: int. value: the duty cycle: between 0 (always off) and 255 (always on). Allowed data types: int.
-        Returns Nothing
+        param pin: the Arduino pin to write to. Allowed data types: int. value: the duty cycle: between 0 (always off) and 255 (always on). Allowed data types: int.
+        return: Nothing
         int analogRead(int pin)
 
 ### Documentación de sapi_pwm.h (sAPI):
