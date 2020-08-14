@@ -1,5 +1,5 @@
 # Testing de portación de funciones para Arduino
-Se usa para testing de funciones para implementar funciones de HW de Arduino usando la biblioteca sAPI. 
+Implementación de testing de funciones de la API de Arduino usando la biblioteca sAPI para usar el IDE Arduino con la Edi-CIAA-NXP y la CIAA-NXP. 
 
 ## Analog I/O
 
