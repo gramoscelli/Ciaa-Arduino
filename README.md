@@ -4,21 +4,17 @@ Se usa para testing de funciones Arduino vía sAPI.
 Funciones a implementar:
 
 ## Analog I/O
-*   analogRead\(\) 
-*   analogReference\(\) 
-*   analogWrite\(\) 
+*   analogRead() 
+*   analogReference() 
+*   analogWrite() 
 
-Requisitos:
+Requisitos (sacados de la referencia oficial de Arduino):
 
-A\) **analogWrite\(\)** Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to **analogWrite\(\)**, the pin will generate a steady rectangular wave of the specified duty cycle until the next call to analogWrite() (or a call to **digitalRead\(\)** or **digitalWrite\(\)**) on the same pin.
+1\) **analogWrite()** Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to **analogWrite\(\)**, the pin will generate a steady rectangular wave of the specified duty cycle until the next call to analogWrite() (or a call to **digitalRead\(\)** or **digitalWrite\(\)**) on the same pin.
 
-2\)
+2\) **analogReference()** (No se usa)
 
-3\)
-
-4\)
-
-5\)
+3\) **analogWrite()** Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to **analogWrite()**, the pin will generate a steady rectangular wave of the specified duty cycle until the next call to analogWrite() (or a call to **digitalRead()** or **digitalWrite()**) on the same pin.
 
 
 
