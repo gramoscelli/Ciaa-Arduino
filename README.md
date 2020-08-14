@@ -18,14 +18,11 @@ Requisitos (sacados de la referencia oficial de Arduino):
 
 De la documentación de  (sAPI):
 
-1) **pwmInit()** 
-    -  Initializes the pwm peripheral.
+1) **pwmInit()** Initializes the pwm peripheral.
 
-        param uint8_t pwmNumber
-
-        param uint8_t config
-
-        return bool_t true (1) if config it is ok
+        - param uint8_t pwmNumber
+        - param uint8_t config
+        - return bool_t true (1) if config it is ok
 
         #### bool_t pwmInit( pwmMap_t pwmNumber, pwmInit_t config);
 
