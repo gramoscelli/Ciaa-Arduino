@@ -1,7 +1,7 @@
 # Testing de portación de funciones para Arduino
-Implementación de testing de funciones de la API de Arduino usando la biblioteca sAPI para usar el IDE Arduino con la Edi-CIAA-NXP y la CIAA-NXP. 
+Implementación de testing de funciones de la API de Arduino usando la biblioteca sAPI para usar el IDE Arduino con la Edu-CIAA-NXP y la CIAA-NXP. 
 
-## Analog I/O
+## Biblioteca Analog I/O
 
 La biblioteca Analog I/O de Ardunio está compuesta por:
 
@@ -73,3 +73,5 @@ De la documentación de
 4\) **gpioToggle()**
 
         bool_t gpioToggle( gpioMap_t pin );
+
+## Requerimientos
