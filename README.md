@@ -24,28 +24,30 @@ De la documentación de sapi_pwm.h (sAPI):
 
 1\) **pwmInit()** Initializes the pwm peripheral.
 
-        - param uint8_t pwmNumber
-        - param uint8_t config
-        - return bool_t true (1) if config it is ok
-        bool_t pwmInit( pwmMap_t pwmNumber, pwmInit_t config);
+       > - param uint8_t pwmNumber
+       > - param uint8_t config
+       > - return bool_t true (1) if config it is ok
+       > bool_t pwmInit( pwmMap_t pwmNumber, pwmInit_t config);
 
 2\) **pwmWrite()** Change the value of the pwm at the selected pin.
 
-        - param  pwmMap_t pwmNumber:   ID of the pwm, from 0 to 10
-        - param  uint8_t  value:   8bit value, from 0 to 255
-        - return bool_t True if the value was successfully changed, False if not.
-        bool_t pwmWrite( pwmMap_t pwmNumber, uint8_t percent );
+       > - param  pwmMap_t pwmNumber:   ID of the pwm, from 0 to 10
+       > - param  uint8_t  value:   8bit value, from 0 to 255
+       > - return bool_t True if the value was successfully changed, False if not.
+       > bool_t pwmWrite( pwmMap_t pwmNumber, uint8_t percent );
+
+
 
 De la documentación de sapi_adc.h (sAPI):
 
-1\) **pwmInit()** Initializes the pwm peripheral.
+1\) **adcInit()** Initializes the pwm peripheral.
 
         - param  adcInit_t config : enumerado (ADC_ENABLE, ADC_DISABLE)
         void adcInit( adcInit_t config );
 
 
 
-2\) **pwmWrite()** Change the value of the pwm at the selected pin.
+2\) **adcRead()** Change the value of the pwm at the selected pin.
 
         - param  adcMap_t analogInput: pin de entrada (enumerado)
         - return uint16_t valor del ADC
