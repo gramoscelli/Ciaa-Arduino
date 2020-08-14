@@ -36,6 +36,21 @@ De la documentación de sapi_pwm.h (sAPI):
         - return bool_t True if the value was successfully changed, False if not.
         bool_t pwmWrite( pwmMap_t pwmNumber, uint8_t percent );
 
+De la documentación de sapi_adc.h (sAPI):
+
+1\) **pwmInit()** Initializes the pwm peripheral.
+
+        - param  adcInit_t config : enumerado (ADC_ENABLE, ADC_DISABLE)
+        void adcInit( adcInit_t config );
+
+
+
+2\) **pwmWrite()** Change the value of the pwm at the selected pin.
+
+        - param  adcMap_t analogInput: pin de entrada (enumerado)
+        - return uint16_t valor del ADC
+        uint16_t adcRead( adcMap_t analogInput );
+
 
 # Usando el IDE de Arduino para programar las tarjetas CIAA-NXP/EDU-CIAA-NXP
 
