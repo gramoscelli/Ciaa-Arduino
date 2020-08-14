@@ -16,6 +16,14 @@ Requisitos (sacados de la referencia oficial de Arduino):
 
 3\) **analogWrite()** Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to **analogWrite()**, the pin will generate a steady rectangular wave of the specified duty cycle until the next call to analogWrite() (or a call to **digitalRead()** or **digitalWrite()**) on the same pin.
 
+De la documentación de  (sAPI):
+
+1) **pwmInit()** 
+    -  Initializes the pwm peripheral.
+        uint8_t pwmNumber
+        uint8_t config
+        return bool_t true (1) if config it is ok
+        ### bool_t pwmInit( pwmMap_t pwmNumber, pwmInit_t config);
 
 
 # Usando el IDE de Arduino para programar las tarjetas CIAA-NXP/EDU-CIAA-NXP
