@@ -24,10 +24,10 @@ De la documentación de sapi_pwm.h (sAPI):
 
 1\) **pwmInit()** Initializes the pwm peripheral.
 
->        param uint8_t pwmNumber
->        param uint8_t config
->        return bool_t true (1) if config it is ok
->        bool_t pwmInit( pwmMap_t pwmNumber, pwmInit_t config);
+        param uint8_t pwmNumber
+        param uint8_t config
+        return bool_t true (1) if config it is ok
+        bool_t pwmInit( pwmMap_t pwmNumber, pwmInit_t config);
 
 2\) **pwmWrite()** Change the value of the pwm at the selected pin.
 
@@ -45,6 +45,7 @@ De la documentación de sapi_adc.h (sAPI):
         - param  adcInit_t config : enumerado (ADC_ENABLE, ADC_DISABLE)
         void adcInit( adcInit_t config );
 
+De la documentación de 
 
 
 2\) **adcRead()** Change the value of the pwm at the selected pin.
@@ -53,6 +54,24 @@ De la documentación de sapi_adc.h (sAPI):
         - return uint16_t valor del ADC
         uint16_t adcRead( adcMap_t analogInput );
 
+De la documentación de sapi_gpio.h (sAPI):
+
+1\) **gpioInit()** 
+
+        bool_t gpioInit( gpioMap_t pin, gpioInit_t config );
+
+
+2\) **gpioRead()**
+
+        bool_t gpioRead( gpioMap_t pin );
+
+3\) **gpioWrite)**
+
+        bool_t gpioWrite( gpioMap_t pin, bool_t value );
+
+4\) **gpioToggle()**
+
+        bool_t gpioToggle( gpioMap_t pin );
 
 # Usando el IDE de Arduino para programar las tarjetas CIAA-NXP/EDU-CIAA-NXP
 
