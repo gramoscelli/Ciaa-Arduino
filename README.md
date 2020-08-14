@@ -1,14 +1,15 @@
-# Rama develop:
-Se usa para testing de funciones Arduino vía sAPI. 
-
-Funciones a implementar:
+# Testing de portación de funciones para Arduino
+Se usa para testing de funciones para implementar funciones de HW de Arduino usando la biblioteca sAPI. 
 
 ## Analog I/O
+
+La biblioteca Analog I/O de Ardunio está compuesta por:
+
 *   analogRead() 
 *   analogReference() 
 *   analogWrite() 
 
-Requisitos (sacados de la referencia oficial de Arduino):
+### Documentación extraída de la referencia oficial de Arduino:
 
 1\) **analogRead()** Reads the value from the specified analog pin. Arduino boards contain a multichannel, 10-bit analog to digital converter. This means that it will map input voltages between 0 and the operating voltage(5V or 3.3V) into integer values between 0 and 1023. On an Arduino UNO, for example, this yields a resolution between readings of: 5 volts / 1024 units or, 0.0049 volts (4.9 mV) per unit. See the table below for the usable pins, operating voltage and maximum resolution for some Arduino boards.
 
@@ -20,7 +21,7 @@ On ATmega based boards (UNO, Nano, Mini, Mega), it takes about 100 microseconds 
 
 3\) **analogWrite()** Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to **analogWrite()**, the pin will generate a steady rectangular wave of the specified duty cycle until the next call to analogWrite() (or a call to **digitalRead()** or **digitalWrite()**) on the same pin.
 
-De la documentación de sapi_pwm.h (sAPI):
+### Documentación de sapi_pwm.h (sAPI):
 
 1\) **pwmInit()** Initializes the pwm peripheral.
 
@@ -38,7 +39,7 @@ De la documentación de sapi_pwm.h (sAPI):
 
 
 
-De la documentación de sapi_adc.h (sAPI):
+### Documentación de sapi_adc.h (sAPI):
 
 1\) **adcInit()** Initializes the pwm peripheral.
 
@@ -54,7 +55,7 @@ De la documentación de
         - return uint16_t valor del ADC
         uint16_t adcRead( adcMap_t analogInput );
 
-De la documentación de sapi_gpio.h (sAPI):
+### Documentación de sapi_gpio.h (sAPI):
 
 1\) **gpioInit()** 
 
@@ -72,30 +73,3 @@ De la documentación de sapi_gpio.h (sAPI):
 4\) **gpioToggle()**
 
         bool_t gpioToggle( gpioMap_t pin );
-
-# Usando el IDE de Arduino para programar las tarjetas CIAA-NXP/EDU-CIAA-NXP
-
-Implementación no oficial de las especificaciones de Arduino (https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5-3rd-party-Hardware-specification) para compilar programas de la CIAA/Edu-CIAA usando el IDE de Arduino. Más información del proyecto CIAA en http://www.proyecto-ciaa.com.ar.
-
-  Pasos para instalar la placa en el IDE Arduino:
-  
-  1\) Acceder a Archivo -> Preferencias. 
-  
-  ![Screenshot](doc/platform.jpg)
-  
-  2\) Agregar el URL del archivo JSON de instalación: https://raw.githubusercontent.com/gramoscelli/Install-Arduino-Ciaa/master/package_ciaa_index.json.
-  
-  ![Screenshot](doc/platform2.jpg)
-  
-  3\) Iniciar el Gestor de Tarjetas desde Herramientas -> Placa...
-  
-  ![Screenshot](doc/platform3.jpg)
-  
-  4\) Instalar la tarjeta Ciaa
-  
-  ![Screenshot](doc/platform4.jpg)
-  
-  5\) Elegir la tarjeta Ciaa recién instalada, desde Herramientas -> Placa...
-  
-  ![Screenshot](doc/platform5.jpg)
-  
