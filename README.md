@@ -1,3 +1,28 @@
+1\)
+# Rama develop:
+Se usa para testing de funciones Arduino vía sAPI. 
+
+Funciones a implementar:
+
+## Analog I/O
+*   analogRead\(\) 
+*   analogReference\(\) 
+*   analogWrite\(\) 
+
+Requisitos:
+
+1\)
+
+2\)
+
+3\)
+
+4\)
+
+5\)
+
+
+
 # Usando el IDE de Arduino para programar las tarjetas CIAA-NXP/EDU-CIAA-NXP
 
 Implementación no oficial de las especificaciones de Arduino (https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5-3rd-party-Hardware-specification) para compilar programas de la CIAA/Edu-CIAA usando el IDE de Arduino. Más información del proyecto CIAA en http://www.proyecto-ciaa.com.ar.
